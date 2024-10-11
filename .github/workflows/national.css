@@ -1,0 +1,194 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #c02c38;
+}
+
+.box1 {
+  top: 0;
+  /* background-color: yellow; */
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.box1 h1 {
+  color: red;
+  font-size: 30px;
+  font-family: "KaiTi";
+}
+
+button {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+nav {
+  overflow: hidden;
+}
+
+nav a {
+  display: inline-block;
+}
+
+.box2 {
+  float: left;
+  background-color: blue;
+  width: 30%;
+  height: 337px;
+  overflow: hidden;
+}
+
+.box2 img {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 10px;
+}
+
+p {
+  font-size: 10px;
+  font-family: "KaiTi";
+}
+
+.box3 {
+  background-color: green;
+  width: 30%;
+  height: 337px;
+  float: right;
+  overflow: hidden;
+}
+
+.box3 img {
+  width: 100%;
+  height: 100%;
+}
+
+.box4 {
+  position: relative;
+  background-color: rgb(186, 186, 114);
+  width: 20%;
+  height: 306px;
+  margin: 0;
+  float: left;
+  /* margin-left: 85px; */
+}
+
+.box4-images {
+  position: relative;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 306px;
+}
+
+a img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.box4:hover .selector {
+  display: flex;
+}
+
+.box4 .selector {
+  width: 80px;
+  height: 20px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  display: none;
+  transform: translateX(-50%);
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.selector span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: lightgray;
+  opacity: 0.5;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.selector span:hover {
+  background-color: #0b0a0a;
+}
+
+.box4 .left,
+.box4 .right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(+50%);
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.box4 .left {
+  margin-left: 0;
+}
+
+.box4 .right {
+  margin-right: 0;
+  right: 0;
+}
+
+.left:hover,
+.right:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Ensure only color changes */
+}
+
+.box5 {
+  background-color: red;
+  width: 40%;
+  float: left;
+}
+
+.box5 p {
+  text-align: center;
+  color: yellow;
+}
+
+.box6 {
+  background-color: aqua;
+  width: 10%;
+  float: right;
+  height: 306px;
+}
+
+.box7 {
+  background-color: aqua;
+  width: 10%;
+  float: left;
+  height: 306px;
+}
+
+a {
+  display: block;
+  text-align: center;
+}
+
+.box8 {
+  height: 800px;
+  background-color: rgb(238, 162, 164);
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>国庆节</title>
+  </head>
+  <link rel="stylesheet" href="./css/national.css" />
+  <body>
+    <div class="box1">
+      <h1>国庆节</h1>
+    </div>
+    <button onclick="changeBg()">切换背景</button>
+    <nav>
+      <a href="#home">首页</a>
+      <a href="http://www.news.cn/">新闻</a>
+      <a href="#services">服务</a>
+      <a href="https://www.cuit.edu.cn/">联系我们</a>
+    </nav>
+    <div class="box2">
+      <h1>国庆的意义</h1>
+      <p>
+        1、国家象征 中华人民共和国国庆节是国家的一种象征，是伴
+        随着国家的出现而出现的,并且变得尤为重要。它
+        成为一个独立国家的标志,反映这个国家的国体和 政体。 2、功能体现
+        国庆这种特殊纪念方式一旦成为新的、全民性的
+        节日形式,便承载了反映这个国家、民族的凝聚力
+        的功能。同时国庆日上的大规模庆典活动,也是政 府动员与号召力的具体体现。
+        3、基本特征 显示国家力量、增强国民信心,体现凝聚力,发挥
+        号召力,即为国庆庆典的三个基本特征
+      </p>
+      <div class="box8">
+        <img src="flag.jpg" alt="" />
+      </div>
+    </div>
+    <div class="box5">
+      <p>庆祝祖国母亲75周年！</p>
+    </div>
+    <div class="box3">
+      <h1>国庆的习俗</h1>
+      <p>
+        ① 天安门升旗仪式:升旗仪式是每天都会完成的
+        但在国庆节这天会分外受关注，中华人民共和
+        国的五星红旗叫扬升起是令国人振奋的，在标志
+        着国家正式独立复兴的特殊日子里看着五星红旗
+        迎风飘扬已经成为一种国人的习俗。 ②
+        对于中华民族而言，国庆节的习俗免不了的就
+        是阅兵仪式，自从1949年毛主席宣布新中国成立
+        并有兵队的展示后，往后的阅兵仪式就成了国
+        庆佳节的必备节目，也就成了一种习俗。由于国
+        庆节是中国人民的法定假日，无论是小孩，大人
+        还是老年人，这一天都是属于休息状态，很多家
+        庭会选择在国庆节除外旅游或逛街，而在这节日
+        很多商场亦会打出折扣等优惠活动，这个节日里
+        你能感受到的就是一片喜庆祥和的气氛。
+      </p>
+      <div class="box9">
+        <img src="flag1.jpg" alt="" />
+      </div>
+    </div>
+    <div class="box6">
+      <a href="https://www.baidu.com/">百度</a>
+    </div>
+    <div class="box7">ceshi</div>
+    <!-- 轮播图 -->
+    <div class="box4">
+      <div class="box4-images">
+        <a href="#">
+          <img style="z-index: 1" src="2.jpg" alt="" />
+          <img src="content.jpg" alt="" />
+          <img src="3.jpg" alt="" />
+        </a>
+      </div>
+      <div class="selector">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="left">&lt;</div>
+      <div class="right">&gt;</div>
+    </div>
+
+    <hr />
+    <div class="box8">
+      <p>ceshi</p>
+    </div>
+  </body>
+  <script>
+    function changeBg() {
+      const currentBgColor = document.body.style.backgroundColor;
+      if (currentBgColor === "rgb(192, 44, 56)") { // Ensure color format matches
+        document.body.style.backgroundColor = "gray";
+      } else {
+        document.body.style.backgroundColor = "#c02c38";
+      }
+    }
+
+    // 轮播图
+
+    let img = document.querySelectorAll(".box4-images img");
+    let span = document.querySelectorAll(".selector span");
+    let left = document.querySelector(".left");
+    let right = document.querySelector(".right");
+
+    let index = 0;
+    let timer;
+
+    function show() {
+      img.forEach((image, idx) => {
+        if (idx === index) {
+          image.style.zIndex = 1; // Show the current image
+        } else {
+          image.style.zIndex = 0; // Hide other images
+        }
+      });
+    }
+
+    function autoPlay() {
+      timer = setInterval(function () {
+        index = (index + 1) % img.length; // Loop back to the first image
+        show();
+      }, 2000);
+    }
+    autoPlay();
+
+    function ctrlPlay() {
+      for(let i = 0; i < span.length; i++){
+        span[i].onclick = function(){
+          index = i;
+          show();
+        }
+      }
+    }
+    ctrlPlay();
+    function clickPlay() {
+      left.onclick = function () {
+        if(index <= 0){
+          index = img.length - 1;
+        }else{
+          index--;
+        }
+        show();
+      }
+      right.onclick = function(){
+        if(index == img.length - 1){
+          index = 0;
+        }else{
+          index++;
+        }
+        show();
+      }
+    }
+    clickPlay();
+    function eventList() {
+      for(let i = 0; i < span.length; i++){
+        span[i].addEventListener('mouseenter',function(){
+          clearInterval(timer);
+          index = i;
+          show();
+        },false);
+        span[i].addEventListener('mouseleave',function(){
+          clearInterval(timer);
+          autoPlay();
+        },false);
+      }
+    }
+    eventList();
+  </script>
+  </body>
+</html>
